@@ -1,0 +1,44 @@
+# Separando strings:
+nome = Yasmin Cardoso Magagnin
+nome.split()  #  --> ['Yasmin', 'Cardoso', 'Magagnin']  --> vira uma lista
+print(nome[-1])  #   --> Magagnin
+
+# ---------------------------------------------------------------------------------------------
+
+# Fatiamento de strings:
+name = 'Fernanda'
+print(name[1:4]) #  --> Pega o [1],[2] e [3] elemento (começa no 1 e vai um antes do 4) -->  ern
+print(name[0:-2])  # --> Fernan
+print(name[2:]) #  --> rnanda
+print(name[-1])  #  --> a
+
+# ---------------------------------------------------------------------------------------------
+
+# Primeira letra de cada nome
+nome = Yasmin Cardoso Magagnin
+nome = nome.split()
+for k in range (len(nome)):
+    if len(nome[k]) != 2:
+        print(f'{nome[k][0]}.', end = ' ')  #  --> Esse que pega o [k]° nome e o [0]° caractere
+    else:
+        print(nome[k].lower(), end = ' ')
+
+# ---------------------------------------------------------------------------------------------
+
+ord('A') --> mostra o valor de A na tabela la
+chr(65) -- > mostra o valor de 32 pra caractere na tabela la
+int('32') --> transforma o '32'(string) em 32(int)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

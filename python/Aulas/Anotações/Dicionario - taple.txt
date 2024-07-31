@@ -1,0 +1,11 @@
+listas = [] 
+
+tupla = ()  # - imutavel, nao muda seus dados
+            # - dados diferentes ex. (nome, idade, altura)
+            
+dicionario = {} # - nao tem indice
+                # - associa um valor a uma chave
+                # - ex. {"Nome":"Fernanda", "Idade":21}
+                # - para alterar -> dicionario["Nome"] = "Fer"
+                # - para adicionar -> dicionario["Altura"] = 1.6
+            
