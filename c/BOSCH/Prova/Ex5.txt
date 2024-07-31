@@ -1,0 +1,13 @@
+Exercicio 5
+
+Parte 1:
+Declara um vetor de numeros, e divide 28 (sizeof(array)) por 4 (sizeof(array[0])), n = 7
+
+Parte 2:
+Faz dois fors, um que começa em 0, continua ate n - 1 (6) e vai de um em um, ou seja esse for vai se repetir 7 vezes
+O segundo for começa em 0, vai ate n - step - 1 (ou seja 6 - 0 - 1 (5)), e continua sucessivamente
+
+Parte 3:
+Essa parte esta dentro do segundo for, e vai verificar se o vetor de índice i sera maior que o vetor de indice i+1, se for, ele ira trocar os dois de lugar.
+
+No geral o codigo foi feito para reorganizar a array de maneira crescente (do menor para o maior)
