@@ -1,3 +1,5 @@
+-- DESAFIO 2
+
 SELECT * FROM Itens_Notas_Fiscais -- Codigo_do_Produto - Quantidade - Numero                     --> INF
 SELECT * FROM Notas_Fiscais -- Numero - Data_Venda																	 --> NF
 SELECT * FROM Tabela_De_Produtos -- Codigo_do_Produto - Nome_do_Produto - Sabor			 --> TP
