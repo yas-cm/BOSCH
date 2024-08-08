@@ -1,43 +1,44 @@
 -- TRIGGER -- (tentando entender)
 
-CREATE TRIGGER [Nome_Trigger] -- … o nome definido pelo usu·rio para o novo trigger
-ON [Nome_tabela] -- … a tabela ‡ qual o trigger se aplica.
+CREATE TRIGGER [Nome_Trigger] -- √â o nome definido pelo usu√°rio para o novo trigger
+ON [Nome_tabela] -- √â a tabela √† qual o trigger se aplica.
 AFTER DELETE
 AS
 BEGIN
--- … possÌvel declarar vari·veis,
+-- √â poss√≠vel declarar vari√°veis,
 -- inserir, excluir ou alterar dados em outras tabelas.
 END
 
---Crie uma tabela log para armazenar todas as ocorrÍncias de inserÁ„o que ocorrer na tabela Pessoa.
---Crie uma trigger que far· isso automaticamente.
+--Crie uma tabela log para armazenar todas as ocorr√™ncias de inser√ß√£o que ocorrer na tabela Pessoa.
+--Crie uma trigger que far√° isso automaticamente.
 --Dica: Utilize INSERTED
 
 CREATE TABLE LogT ( -- Tabela onde vai "avisar" que o dado foi inserido
 Data DATETIME,
+ID INT PRIMARY KEY IDENTITY(1,1),
 Operacao VARCHAR(50), -- Foi inserido alguma coisa "Insercao"
 Observacao VARCHAR(255) -- O que foi inserido "Inserido Pessoa (Nome)"
-PRIMARY KEY (Data, Operacao)) -- Os dois juntos s„o a Primary Key -- ???
+)
 
 -- Criando Trigger para inserir os dados automaticamente
 CREATE TRIGGER tgLogT
 ON Tabela_De_Clientes -- Tabela onde vao ser inseridos os dados
-FOR INSERT AS -- Quando for inserido (Daria pra colocar mais de um, tipo qnd for inserido mas tbm qnd for deletado?)
+FOR INSERT AS -- Quando for inserido 
 BEGIN -- Comece
 
-DECLARE -- Cria vari·veis
-@Data DATETIME, -- Tem q ter o @? Pq?
+DECLARE -- Cria vari√°veis
+@Data DATETIME, 
 @Operacao VARCHAR(50),
 @Observacao VARCHAR(255)
 
--- Atribui valores ‡s vari·veis
+-- Atribui valores √†s vari√°veis
 SELECT
 @Data = GETDATE(), -- Pega a data 
-@Operacao = 'InserÁ„o', -- A operacao vai ser sempre insercao pq o trigger so ativa com isso
+@Operacao = 'Inser√ß√£o', -- A operacao vai ser sempre insercao pq o trigger so ativa com isso
 @Observacao = CONCAT('Inserido Cliente ', Nome) -- Daria pra escrever 'Inserido Cliente'+Nome ?
 FROM INSERTED -- Vai selecionar da onde tinha sido inserido antes (pega os valores de la)
 
--- Faz uma inserÁ„o em outra tabela utilizando os valores das vari·veis
+-- Faz uma inser√ß√£o em outra tabela utilizando os valores das vari√°veis
 INSERT INTO LogT -- Coloca na tabela q foi criada
 VALUES(@Data, @Operacao, @Observacao) -- Valores selecionados antes
 END -- Fim!
