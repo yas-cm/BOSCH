@@ -1,3 +1,5 @@
+-- DESAFIO 1
+
 CREATE FUNCTION ffVolumeCompras(@bibibi varchar(100)) 
 RETURNS TABLE AS 
 RETURN(
@@ -7,8 +9,8 @@ SELECT
 	P.Volume_de_Compra,
 	CONVERT(VARCHAR(7), NF.Data_Venda, 120) as Data_Venda,
 	SUM(INF.Quantidade) as 'Quantidade_Total',
-	CASE WHEN SUM(INF.Quantidade) > Volume_de_Compra THEN 'Vendas Inválidas'
-	ELSE 'Vendas ´Válidas' END AS 'Resultado'
+	CASE WHEN SUM(INF.Quantidade) > Volume_de_Compra THEN 'Vendas InvÃ¡lidas'
+	ELSE 'Vendas Â´VÃ¡lidas' END AS 'Resultado'
 
 FROM Notas_Fiscais NF -- Select normal
 	INNER JOIN Itens_Notas_Fiscais INF
