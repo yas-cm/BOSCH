@@ -1,0 +1,41 @@
+Criar ambiente virtual:
+python -m venv Ambiente_Virtual
+
+---
+
+Ativar ambiente virtual:
+Ambiente_Virtual\Scripts\activate
+
+---
+Instala a biblioteca opencv no python
+pip install opencv-python
+
+----------------------------------------------
+
+ctrl + k + c -> comenta
+ctrl + k + u -> descomenta
+
+---------------------------------------------
+
+Desenhando imagens:
+import numpy as np (pra criar o fundo)
+img = np.zeros((512,512,3), np.uint8) # Cria a tela preta
+img = np.full((512,512,3), (b,g,r) np.uint8) # Cria tela na cor q quiser (Sendo b, g e r variaveis com as cores)
+
+# Linhas img, (xi, yi), (xf, yf), (cor), (espessura)
+cv2.line()
+
+# Retangulo img, (xi, yi), (xf, yf), (cor), (espessura)
+cv2.rectangle
+
+# Circulo img, (x, y), raio, (cor), (espessura)
+cv2.circle
+
+# Texto img, (texto), (xi, yi), tipo_fonte, tamanho_fonte, cor, espessura, tipo_linha
+cv2.putText
+
+
+
+---------------------------------------------
+pra baixar as imagens: cv2.imwrite("nomedoarquivo.jpg",img)
+----------------------------------------------
