@@ -1,19 +1,32 @@
-# Qnd salva mostrar o processo q a pessoa desenhou
+# ARRUMAR
+# Qnd salva mostrar o processo q a pessoa desenhou ->> deixar 15 segundos (lista?)
 # Geometria
+# Arrumar o bgr
+# paleta de cor
+# retangulinho de opções
 
-import cv2
+
+import cv2      #type: ignore
 import numpy as np
 
 
 def funcao(event, x, y, flags, param):
-    global r, g, b, cont, raio, fundo, op, t
+    global r, g, b, cont, raio, fundo, op, t, frames
     if event == cv2.EVENT_LBUTTONDOWN:
         cont = cont + 1
     if event == cv2.EVENT_RBUTTONDOWN:
-        color = img[y,x] # pega a cor do pixel nesse ponto
-        b = int(color[0])
-        g = int(color[1])
-        r = int(color[2])
+        if param == 'cores':
+            if x >= 0 and x < cores.shape[1] and y >= 0 and y < cores.shape[0]:
+                cores_pixel = cores[y, x] # Pega a cor do pixel na imagem color
+                b = int(cores_pixel[0])
+                g = int(cores_pixel[1])
+                r = int(cores_pixel[2])
+        if param == 'img':
+            if x >= 0 and x < img.shape[1] and y >= 0 and y < img.shape[0]:
+                img_pixel = img[y, x] # Pega a cor do pixel na imagem img
+                b = int(img_pixel[0])
+                g = int(img_pixel[1])
+                r = int(img_pixel[2])
 
     if event == cv2.EVENT_MOUSEWHEEL:
         if flags > 0: # flags ve se o scroll ta indo pra cima ou pra baixo
@@ -32,6 +45,9 @@ def funcao(event, x, y, flags, param):
     elif event == cv2.EVENT_MOUSEMOVE and cont % 2 == 0: 
             cv2.circle(img, (x,y) , raio , (b,g,r) , -1)
             cv2.imshow("img",img)
+            output.write(img)
+            frames = frames + 1
+
             
     elif event == cv2.EVENT_LBUTTONDBLCLK:
         b = fundo[0]
@@ -46,10 +62,19 @@ raio = 5
 fundo = [255,255,255]
 op = 0
 t = 5
+frames = 0
+lista = []
 
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+output = cv2.VideoWriter("paintando.avi", fourcc, 100, (910, 910))
+# tempo do video = framesTotal/fps
+# 10 * fps = ?
 
 cv2.namedWindow("img")
-cv2.setMouseCallback("img",funcao)
+cv2.namedWindow("cores")
+cv2.setMouseCallback("img",funcao,param = 'img')
+cv2.setMouseCallback("cores",funcao,param = 'cores')
+
 img = np.full((910,910,3), (fundo), np.uint8)
 
 cores = np.full((200,200,3), (255,255,255), np.uint8)
@@ -168,5 +193,20 @@ while True:
     if x & 0xFF == 27: 
         break
 
+output.release()
+cv2.destroyAllWindows() 
 
-cv2.destroyAllWindows() # Fecha a imagem
+
+cap = cv2.VideoCapture("paintando.avi")
+
+while(cap.isOpened()):
+    ret,frame = cap.read()
+    # waitKey() --> tempo = framesTotal/fps
+    
+    if cv2.waitKey(5) == 27 or ret == False:
+        cv2.waitKey()
+        break
+    cv2.imshow("paintando.avi",frame)
+
+cap.release()
+cv2.destroyAllWindows()
