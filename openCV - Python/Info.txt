@@ -39,3 +39,35 @@ cv2.putText
 ---------------------------------------------
 pra baixar as imagens: cv2.imwrite("nomedoarquivo.jpg",img)
 ----------------------------------------------
+
+
+# Criando videos:
+
+fourcc = cv2.VideoWriter_fourcc(*'XVID') 
+output = cv2.VideoWriter("exercicio.avi",fourcc,5.0, (500,500)) # precisa ser .avi
+
+# "nome.avi", fourcc, fps , tamanho 
+# tempo do video = framesTotal/fps
+
+
+# pra mandar um novo fps pro video ->> output.write(img)
+# no fim colocar ->> output.release()
+
+
+# Vendo videos
+while(cap.isOpened()):
+    ret,frame = cap.read()
+
+
+    if cv2.waitKey(5) == 27 or ret == False:
+        cv2.waitKey()
+        break
+    cv2.imshow("exercicio.avi",frame) # Nome do video
+
+cap.release()
+
+-----------------------------------------------------
+# Pra deixar o texto centralizado
+tamanho_texto = cv2.getTextSize(texto_tempo, fonte, 3, 2)[0]
+x = (300 - tamanho_texto[0]) // 2
+y = (190 + tamanho_texto[1]) // 2
