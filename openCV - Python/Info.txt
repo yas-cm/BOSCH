@@ -71,3 +71,10 @@ cap.release()
 tamanho_texto = cv2.getTextSize(texto_tempo, fonte, 3, 2)[0]
 x = (300 - tamanho_texto[0]) // 2
 y = (190 + tamanho_texto[1]) // 2
+
+-------------------------------------------------------
+# Diminuir
+# Imagem
+arroz = cv2.resize(arroz, None, fx = 0.3, fy = 0.3) # Diminui o tamanho pra 30%
+# Video
+frame = cv2.resize(frame, None, fx=0.8, fy=0.8)
