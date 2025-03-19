@@ -1,0 +1,92 @@
+<!-- HTML - Esqueleto
+CSS - Estilo
+JavaScript - Interatividade -->
+
+<!-- aperta ! pra vir esses:-->
+
+<!DOCTYPE html> <!-- versao do codigo -->
+<html lang="en">
+<head> <!-- definição e configuração da pagina -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sitezinho</title> <!-- como aparece la na abinha -->
+</head>
+
+
+<body> <!-- Tudo o que é exibido -->
+
+    <!-- <A>link</A> -->
+    <!-- <H1>Titulo</H1> -->
+    <!-- <input/> -->
+
+    <!-- Atributo inline  -so na tag q ta -->
+    <h1 style = "color: rgb(126, 37, 138);">Titulo</h1>
+    <!-- Atributo interno  -em todos -->
+    <style>
+        /* classe - mais de uma tag com o mesmo estilo */
+        .quadrado{
+            width: 100px;
+            height: 100px;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: 20px; /* espaçamentp externo */
+            padding: 20px; /* espaçamento interno */
+        }
+        /* Mandar para o centro */
+        .alinha-centro{
+            justify-content: center; /* vai para o centro da linha */
+            align-items: center; /* vai para o centro da coluna */
+        }
+
+        .alinha-direita{
+            justify-content: right; /* (left - center - right) */
+            align-items: start; /* (start - center - end) */
+        }
+
+        .quadrado1{
+            background-color: rgba(142, 129, 150, 0.815);
+        }
+
+        /* id - so vai ter um desse */
+        #quadrado2{
+            background-color: rgb(76, 160, 209);
+        }
+
+        #circulo{
+            background-color: rgba(94, 202, 94, 0.699);
+            width: 100px;
+            height: 100px;
+            border-radius: 50pc;
+            border: 3px solid black;
+            margin: 20px; /* espaçamentp externo */
+            padding: 20px; /* espaçamento interno */
+        }
+
+        /* <!-- display flex --> */
+        .flex{
+            display: flex;
+        }
+    </style>
+    <!-- Atributo externo - arquivo separado css -->
+    
+    <a href="https://static.vecteezy.com/system/resources/previews/027/130/545/non_2x/red-cherry-tomatoes-on-a-twig-digital-isolated-illustration-applicable-for-packaging-design-postcards-prints-textiles-png.png">Clique aqui haha</a>
+    <input type="text">
+    <p>textinho</p>
+
+    <div class="flex"> <!-- display flex -->
+        <div class = "flex alinha-centro quadrado quadrado1">1</div>
+        <div class = "flex alinha-centro quadrado quadrado1">2</div>
+        <div id="circulo" class = "flex alinha-centro">0</div>
+    </div>
+    <div id = "quadrado2" class = "flex alinha-centro quadrado">2</div>
+
+    
+
+
+</body>
+
+
+
+
+</html>
