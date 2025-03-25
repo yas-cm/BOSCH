@@ -5,9 +5,11 @@
     margin: 0px;
     padding: 0px;
 }
+
 body{
     background-color: rgb(250, 244, 235);
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: 100vh;
 }
 
 .cima{
@@ -21,38 +23,59 @@ body{
 }
 
 .caixinha{
-    height: full;
+    height: 80%;
     background-color: rgb(233, 225, 214);
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow:rgb(196, 199, 218) 0px 2px 1px, rgba(196, 199, 218) 0px 4px 2px, rgba(196, 199, 218) 0px 8px 4px;
-
-}
-
-.inha{
-    /* margin-top: 10%; */
     margin-bottom: 10%;
     margin-left: 5%;
     margin-right: 5%;
 }
 
-.caixas-meio{
+
+.caixinha-meio{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    height: 60%;    
+    height: 70%;    
     
-    border-radius: 5px;
+    border-radius: 25px;
     /* box-shadow:rgb(196, 199, 218) 0px 2px 1px, rgba(196, 199, 218) 0px 4px 2px, rgba(196, 199, 218) 0px 8px 4px; */
     
 }
-
-.content{
-    display: flex;
-    height: 100vh;
+.caixinha-direita{
+    height: 60%;
+    background-color: rgb(233, 225, 214);
+    border-radius: 25px;
+    box-shadow:rgb(196, 199, 218) 0px 2px 1px, rgba(196, 199, 218) 0px 4px 2px, rgba(196, 199, 218) 0px 8px 4px;
+    
 }
+
+.navigation{
+    height: 10%;
+    background-color: rgb(233, 225, 214);
+    border-radius: 0 25px 25px 0px;
+    box-shadow:rgb(196, 199, 218) 0px 2px 1px, rgba(196, 199, 218) 0px 4px 2px, rgba(196, 199, 218) 0px 8px 4px;
+    margin-top: 10px;
+    margin-bottom:24px;
+    margin-left: -20px;
+    margin-right: 25px;
+}
+
+.tomatinho{
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+    height: 120%;
+
+
+}
+
+
 .grid{
     display: grid;
+    height: 60%;
     grid-template-columns: 25% 50% 25%;
+    /* grid-template-rows: 50% 50%; */
     margin: 3px;
     padding: 10px;
     gap: 3px;
